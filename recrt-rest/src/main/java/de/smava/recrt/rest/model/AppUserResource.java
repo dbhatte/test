@@ -5,12 +5,15 @@ import de.smava.recrt.model.UserRole;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 public class AppUserResource extends DefaultResource implements AppUser {
 
     private String username;
 
     private String email;
 
+    @JsonIgnore
     private List<UserRole> roles;
 
     public AppUserResource() {
