@@ -33,7 +33,8 @@ public class BankAccountJmsConsumer implements BankAccountService {
     public BankAccount create(BankAccount account) throws RecrtServiceException {
         LOG.warn("Received " + account);
         setLastReceived(account);
-        return bankAccountService.create(account);
+         bankAccountService.create(account);
+         return null;
     }
 
     public synchronized BankAccount getLastReceived() {
