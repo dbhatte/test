@@ -1,9 +1,16 @@
 package de.smava.recrt.persistence.model;
 
-import de.smava.recrt.model.AppUser;
-
-import javax.persistence.*;
 import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import de.smava.recrt.model.AppUser;
 
 /**
  * AppUser Entity.
@@ -21,6 +28,7 @@ public class AppUserEntity implements AppUser {
     private String password;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "key.appUser")
+    @JsonBackReference
     private Set<AppUserRoleEntity> appUserRoles;
 
     public AppUserEntity() {

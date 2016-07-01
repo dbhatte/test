@@ -1,18 +1,22 @@
 package de.smava.recrt.persistence.model;
 
-import de.smava.recrt.model.UserRole;
+import java.io.Serializable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import java.io.Serializable;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
+import de.smava.recrt.model.UserRole;
 
 @Embeddable
 public class AppUserRoleKey implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "app_user_username")
+    @JsonManagedReference
     private AppUserEntity appUser;
 
     @Column(name = "role")
